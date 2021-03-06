@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "WebJobs": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
