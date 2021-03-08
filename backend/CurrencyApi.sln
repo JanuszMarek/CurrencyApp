@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.31025.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CurrencyApi", "CurrencyApi\CurrencyApi.csproj", "{58B7495A-CFB6-4F95-896D-753B5A243BF4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebJobs", "WebJobs\WebJobs.csproj", "{3FD8120A-4CAC-4356-B6F1-6F3442A9A52D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebJobs", "WebJobs\WebJobs.csproj", "{3FD8120A-4CAC-4356-B6F1-6F3442A9A52D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtendedServices", "ExtendedServices\ExtendedServices.csproj", "{9E2B623D-4871-4C96-BD29-A7D744059730}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{3FD8120A-4CAC-4356-B6F1-6F3442A9A52D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3FD8120A-4CAC-4356-B6F1-6F3442A9A52D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3FD8120A-4CAC-4356-B6F1-6F3442A9A52D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E2B623D-4871-4C96-BD29-A7D744059730}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E2B623D-4871-4C96-BD29-A7D744059730}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E2B623D-4871-4C96-BD29-A7D744059730}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E2B623D-4871-4C96-BD29-A7D744059730}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
