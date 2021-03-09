@@ -5,12 +5,9 @@ namespace EF
 {
     public class CurrencyContext : DbContext
     {
-        private readonly string _connectionString;
-
         public CurrencyContext(DbContextOptions<CurrencyContext> options)
             : base(options)
         {
-
         }
 
         public virtual DbSet<Symbol> Symbols { get; set; }

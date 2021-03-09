@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CurrencyApi.EF.Constants
+﻿namespace CurrencyApi.EF.Constants
 {
     public static class ColumnTypeName
     {
