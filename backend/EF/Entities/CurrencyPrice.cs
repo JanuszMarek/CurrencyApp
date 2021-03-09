@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CurrencyApi.EF.Constants;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -12,6 +13,7 @@ namespace EF.Entities
         [ForeignKey(nameof(Symbol))]
         public int SymbolId { get; set; }
 
+        [Column(TypeName = ColumnTypeName.Price)]
         public decimal Price { get; set; }
 
         public DateTime Timestamp { get; set; }
