@@ -7,11 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CurrencyApi", "CurrencyApi\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebJobs", "WebJobs\WebJobs.csproj", "{3FD8120A-4CAC-4356-B6F1-6F3442A9A52D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtendedServices", "ExtendedServices\ExtendedServices.csproj", "{9E2B623D-4871-4C96-BD29-A7D744059730}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExtendedServices", "ExtendedServices\ExtendedServices.csproj", "{9E2B623D-4871-4C96-BD29-A7D744059730}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{CF8B9F7A-4C78-4A92-A622-9F322DD9E1B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{CF8B9F7A-4C78-4A92-A622-9F322DD9E1B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EF", "EF\EF.csproj", "{3A17ACD8-35C6-45D1-96AC-FF7BC1C3DA07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EF", "EF\EF.csproj", "{3A17ACD8-35C6-45D1-96AC-FF7BC1C3DA07}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
