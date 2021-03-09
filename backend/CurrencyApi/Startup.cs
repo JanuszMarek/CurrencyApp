@@ -1,3 +1,4 @@
+using CurrencyApi.EF.Constants;
 using EF;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -29,7 +30,7 @@ namespace CurrencyApi
             });
             services.AddDbContextFactory<CurrencyContext>(option =>
             {
-                var connectionString = Configuration["ConnectionStrings:Database"];
+                var connectionString = Configuration[ConfigurationStrings.ConnectionString];
                 option.UseSqlServer(connectionString, b => b.MigrationsAssembly(nameof(CurrencyApi)));
             });
         }

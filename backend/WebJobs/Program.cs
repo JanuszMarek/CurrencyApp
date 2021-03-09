@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using CurrencyApi.EF.Constants;
+using EF;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -49,16 +52,26 @@ namespace WebJobs
 
             builder.ConfigureWebJobs(webJobConfiguration =>
                     {
-                        webJobConfiguration.AddAzureStorageCoreServices().AddTimers();
+                        webJobConfiguration
+                            .AddAzureStorageCoreServices()
+                            .AddTimers();
                     })
                 .ConfigureLogging((context, b) =>
                 {
                     b.AddConsole();
                 })
-                .ConfigureServices(serviceCollection => serviceCollection.AddTransient<WebJobTimer>())
+                .ConfigureServices(serviceCollection => ConfigureService(serviceCollection))
                 .UseConsoleLifetime();
 
             return builder.Build();
+        }
+
+        private static void ConfigureService(IServiceCollection serviceCollection)
+        {
+            serviceCollection.AddTransient<WebJobTimer>();
+            serviceCollection.AddDbContext<CurrencyContext>(option =>
+                option.UseSqlServer(configuration[ConfigurationStrings.ConnectionString])
+            );
         }
     }
 }
