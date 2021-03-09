@@ -19,7 +19,7 @@ namespace Entity.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            //DatabaseSeed.Seed(modelBuilder);
+            DatabaseSeed.Seed(modelBuilder);
         }
     }
 }
