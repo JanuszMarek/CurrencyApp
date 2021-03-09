@@ -1,4 +1,4 @@
-﻿namespace CurrencyApi.EF.Constants
+﻿namespace Entity.Constants
 {
     public static class ColumnTypeName
     {

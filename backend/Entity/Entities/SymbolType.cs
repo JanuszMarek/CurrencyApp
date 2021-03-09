@@ -1,9 +1,15 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace EF.Entities
+namespace Entity.Entities
 {
     public class SymbolType
     {
+        public SymbolType(int id, string name)
+        {
+            Id = id;
+            Name = name;
+        }
+
         [Key]
         public int Id { get; set; }
         

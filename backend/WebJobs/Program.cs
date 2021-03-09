@@ -1,5 +1,5 @@
-﻿using CurrencyApi.EF.Constants;
-using EF;
+﻿using Entity.Constants;
+using Entity.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

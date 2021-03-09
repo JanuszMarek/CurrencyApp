@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <AssemblyName>CurrencyApi.EF</AssemblyName>
-    <RootNamespace>CurrencyApi.EF</RootNamespace>
+    <AssemblyName>Entity</AssemblyName>
+    <RootNamespace>Entity</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

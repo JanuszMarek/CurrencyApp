@@ -1,9 +1,9 @@
-﻿using CurrencyApi.EF.Constants;
+﻿using Entity.Constants;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace EF.Entities
+namespace Entity.Entities
 {
     public class CurrencyPrice
     {

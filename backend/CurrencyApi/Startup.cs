@@ -1,5 +1,5 @@
-using CurrencyApi.EF.Constants;
-using EF;
+using Entity.Constants;
+using Entity.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;

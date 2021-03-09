@@ -1,7 +1,8 @@
-﻿using EF.Entities;
+﻿using Entity.Entities;
+using Entity.Seed;
 using Microsoft.EntityFrameworkCore;
 
-namespace EF
+namespace Entity.Context
 {
     public class CurrencyContext : DbContext
     {
@@ -14,5 +15,11 @@ namespace EF
         public virtual DbSet<SymbolType> SymbolTypes { get; set; }
         public virtual DbSet<CurrencyPrice> CurrencyPrices { get; set; }
         public virtual DbSet<CurrencyDelta> CurrencyDeltas { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            //DatabaseSeed.Seed(modelBuilder);
+        }
     }
 }
