@@ -7,6 +7,6 @@ namespace Entity.Enums
         [Description(nameof(Currency))]
         Currency = 1,
         [Description(nameof(Cryptocurrency))]
-        Cryptocurrency = 2
+        Cryptocurrency
     }
 }

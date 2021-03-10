@@ -7,10 +7,7 @@ namespace Entity.Extensions
     {
         public static void SeedEntityData<TEntity>(this ModelBuilder modelBuilder, IEnumerable<TEntity> dataSeedCollection) where TEntity : class
         {
-            foreach (var data in dataSeedCollection)
-            {
-                modelBuilder.Entity<TEntity>().HasData(data);
-            }
+            modelBuilder.Entity<TEntity>().HasData(dataSeedCollection);
         }
     }
 }
