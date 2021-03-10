@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>ExternalServices</AssemblyName>
+    <RootNamespace>ExternalServices</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

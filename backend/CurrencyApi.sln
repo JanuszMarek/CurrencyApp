@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CurrencyApi", "CurrencyApi\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebJobs", "WebJobs\WebJobs.csproj", "{3FD8120A-4CAC-4356-B6F1-6F3442A9A52D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExtendedServices", "ExtendedServices\ExtendedServices.csproj", "{9E2B623D-4871-4C96-BD29-A7D744059730}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExternalServices", "ExternalServices\ExternalServices.csproj", "{9E2B623D-4871-4C96-BD29-A7D744059730}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{CF8B9F7A-4C78-4A92-A622-9F322DD9E1B1}"
 EndProject
