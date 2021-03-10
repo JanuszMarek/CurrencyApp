@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace ExtendedServices.Models.CoinLib
+namespace ExternalServices.Models.CoinLib
 {
     public class MarketModel
     {

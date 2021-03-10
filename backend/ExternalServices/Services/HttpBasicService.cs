@@ -2,7 +2,7 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace ExtendedServices.Services
+namespace ExternalServices.Services
 {
     public abstract class HttpBasicService
     {

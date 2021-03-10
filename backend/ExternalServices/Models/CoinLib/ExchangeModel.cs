@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace ExtendedServices.Models.CoinLib
+namespace ExternalServices.Models.CoinLib
 {
     public class ExchangeModel
     {

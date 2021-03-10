@@ -1,8 +1,7 @@
-﻿using ExtendedServices.Models.CoinLib;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace ExtendedServices.Models.CoinLiub
+namespace ExternalServices.Models.CoinLib
 {
     public class CoinlibModel
     {
