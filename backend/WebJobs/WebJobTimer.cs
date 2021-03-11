@@ -1,15 +1,23 @@
-﻿using Microsoft.Azure.WebJobs;
-using System;
+﻿using BusinessLogic.Module.CryptoCurrency;
+using Microsoft.Azure.WebJobs;
+using System.Threading.Tasks;
 
 namespace WebJobs
 {
     public class WebJobTimer
     {
+        private readonly ICryptoApiService cryptoApiService;
+
+        public WebJobTimer(ICryptoApiService cryptoApiService)
+        {
+            this.cryptoApiService = cryptoApiService;
+        }
+
         //If I scale out, it should still only have one instance running
         [Singleton] 
-        public static void CryptoApiTimer([TimerTrigger("0/1 * * * *")] TimerInfo myTimer)
+        public async Task CryptoApiTimer([TimerTrigger("0/1 * * * *")] TimerInfo myTimer)
         {
-            Console.WriteLine($"Hello at {DateTime.UtcNow.ToString()}");
+            var result = await cryptoApiService.GetLatestCryptoPricesAsync();
         }
     }
 }

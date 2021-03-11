@@ -1,4 +1,6 @@
-﻿using Entity.Constants;
+﻿using BusinessLogic;
+using BusinessLogic.Extensions;
+using Entity.Constants;
 using Entity.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -72,6 +74,7 @@ namespace WebJobs
             serviceCollection.AddDbContext<CurrencyContext>(option =>
                 option.UseSqlServer(configuration[ConfigurationStrings.ConnectionString])
             );
+            serviceCollection.RegisterServicesWebJobs();
         }
     }
 }

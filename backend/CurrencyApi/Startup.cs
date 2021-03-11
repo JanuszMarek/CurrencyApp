@@ -32,7 +32,7 @@ namespace CurrencyApi
             {
                 var connectionString = Configuration[ConfigurationStrings.ConnectionString];
                 option.UseSqlServer(connectionString, b => b.MigrationsAssembly(nameof(CurrencyApi)));
-            });
+            }, ServiceLifetime.Scoped);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
