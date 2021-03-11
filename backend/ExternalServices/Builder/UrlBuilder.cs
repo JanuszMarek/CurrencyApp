@@ -1,0 +1,55 @@
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace ExternalServices.Builder
+{
+    public class UrlBuilder
+    {
+        private readonly StringBuilder Url = new();
+
+        public string Build()
+        {
+            return Url.ToString();
+        }
+
+        public UrlBuilder AddRoute(string route)
+        {
+            if (string.IsNullOrEmpty(route))
+            {
+                return this;
+            }
+            else if (Url[^1] != '/' && route[0] != '/')
+            {
+                Url.Append('/');
+            }
+
+            Url.Append(route);
+            return this;
+        }
+
+        public UrlBuilder AddQuery(IDictionary<string, string> parametersDict)
+        {
+            if (parametersDict == null)
+            {
+                return this;
+            }
+
+            var queryBuilder = new StringBuilder('?');
+            var keysArray = parametersDict.Keys.ToArray();
+
+            for (int i = 0; i < keysArray.Length; i++)
+            {
+                var key = keysArray[i];
+                queryBuilder.Append(key + "=" + parametersDict[key]);
+                if (i < (keysArray.Length - 1))
+                {
+                    queryBuilder.Append('&');
+                }
+            }
+
+            Url.Append(queryBuilder);
+            return this;
+        }
+    }
+}
