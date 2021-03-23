@@ -6,7 +6,7 @@ using Microsoft.Extensions.Options;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace BusinessLogic.Module.CryptoCurrency
+namespace BusinessLogic.Module.CryptoApiModule
 {
     public interface ICryptoApiService
     {
@@ -17,16 +17,13 @@ namespace BusinessLogic.Module.CryptoCurrency
     {
         private readonly IHttpCoinlibService httpCoinlibService;
         private readonly CoinlibSettings coinlibSettings;
-        //private readonly IMapper mapper;
 
         public CryptoApiService(
             IHttpCoinlibService httpCoinlibService,
             IOptions<CoinlibSettings> options)
-            //IMapper mapper)
         {
             this.httpCoinlibService = httpCoinlibService;
             this.coinlibSettings = options.Value;
-            //this.mapper = mapper;
         }
 
         public async Task<IEnumerable<CoinModel>> GetLatestCryptoPricesAsync()
@@ -38,11 +35,6 @@ namespace BusinessLogic.Module.CryptoCurrency
                     coinlibSettings.ApiKey);
 
             return response.Coins;
-        }
-
-        public async Task StoreCryptoPricesAsync()
-        {
-
         }
     }
 }

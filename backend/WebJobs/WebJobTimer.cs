@@ -1,4 +1,4 @@
-﻿using BusinessLogic.Module.CryptoCurrency;
+﻿using BusinessLogic.Module.CryptoApiModule;
 using Microsoft.Azure.WebJobs;
 using System.Threading.Tasks;
 
