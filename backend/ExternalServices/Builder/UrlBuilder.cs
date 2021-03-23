@@ -36,7 +36,7 @@ namespace ExternalServices.Builder
                 return this;
             }
 
-            var queryBuilder = new StringBuilder('?');
+            var queryBuilder = new StringBuilder("?");
             var keysArray = parametersDict.Keys.ToArray();
 
             for (int i = 0; i < keysArray.Length; i++)

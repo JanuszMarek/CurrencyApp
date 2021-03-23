@@ -1,4 +1,5 @@
-﻿using ExternalServices.Models.CoinLib;
+﻿using ExternalServices.Builder;
+using ExternalServices.Models.CoinLib;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Formatting;
@@ -8,25 +9,27 @@ namespace ExternalServices.Services
 {
     public interface IHttpCoinlibService
     {
-        Task<CoinlibModel> GetPricesAsync(IEnumerable<string> cryptoSymbols, string priceCurrency);
+        Task<CoinlibModel> GetPricesAsync(IEnumerable<string> cryptoSymbols, string priceCurrency, string apiKey);
     }
 
     public class HttpCoinlibService : HttpBasicService, IHttpCoinlibService
     {
         public HttpCoinlibService(HttpClient httpClient) : base(httpClient)
         {
+            apiRoute = "/api/v1/";
         }
 
-        public async Task<CoinlibModel> GetPricesAsync(IEnumerable<string> cryptoSymbols, string priceCurrency)
+        public async Task<CoinlibModel> GetPricesAsync(IEnumerable<string> cryptoSymbols, string priceCurrency, string apiKey)
         {
-            var parameters = new Dictionary<string, string>
+            var endpoint = "coin";
+            var parametersDict = new Dictionary<string, string>
             {
                 ["symbol"] = string.Join(",", cryptoSymbols),
-                ["pref"] = priceCurrency
+                ["pref"] = priceCurrency,
+                ["key"] = apiKey
             };
 
-            var query = new FormDataCollection(parameters).ReadAsNameValueCollection().ToString();
-            var response = await GetAsync<CoinlibModel>(query);
+            var response = await GetAsync<CoinlibModel>(endpoint, parametersDict);
 
             return response;
         }
