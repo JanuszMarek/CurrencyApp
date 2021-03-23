@@ -11,7 +11,7 @@ namespace ExternalServices.Services
     public abstract class HttpBasicService
     {
         private readonly HttpClient httpClient;
-        protected string apiEndpoint;
+        protected string apiRoute;
 
         public HttpBasicService(HttpClient httpClient)
         {
@@ -21,7 +21,7 @@ namespace ExternalServices.Services
         protected async Task<HttpResponseMessage> GetAsync(string endpoint, Dictionary<string, string> parameters = null)
         {
             var url = new UrlBuilder()
-                .AddRoute(apiEndpoint)
+                .AddRoute(apiRoute)
                 .AddRoute(endpoint)
                 .AddQuery(parameters)
                 .Build();

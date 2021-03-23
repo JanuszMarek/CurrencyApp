@@ -26,7 +26,7 @@ namespace BusinessLogic.Module.CryptoCurrency
 
         public async Task<IEnumerable<CoinModel>> GetLatestCryptoPricesAsync()
         {
-            var cryptoSymbols = new string[] { "BTC, ETH, USDT" };
+            var cryptoSymbols = new string[] { "BTC", "ETH", "USDT" };
             var priceCurrency = "PLN";
 
             var response = await httpCoinlibService.GetPricesAsync(cryptoSymbols, priceCurrency);

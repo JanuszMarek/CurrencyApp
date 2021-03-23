@@ -19,7 +19,8 @@ namespace ExternalServices.Builder
             {
                 return this;
             }
-            else if (Url[^1] != '/' && route[0] != '/')
+            else 
+            if (route[0] != '/' && (Url.Length == 0 || Url[^1] != '/'))
             {
                 Url.Append('/');
             }
