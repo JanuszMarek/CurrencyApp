@@ -1,5 +1,6 @@
 ﻿using BusinessLogic;
 using BusinessLogic.Extensions;
+using Configuration.Models;
 using Entity.Constants;
 using Entity.Context;
 using Microsoft.EntityFrameworkCore;
@@ -75,6 +76,8 @@ namespace WebJobs
                 option.UseSqlServer(configuration[ConfigurationStrings.ConnectionString])
             );
             serviceCollection.RegisterServicesWebJobs();
+
+            serviceCollection.Configure<CoinlibSettings>(options => configuration.GetSection("Coinlib").Bind(options));
         }
     }
 }
