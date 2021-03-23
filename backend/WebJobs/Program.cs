@@ -38,7 +38,16 @@ namespace WebJobs
 
             if (IsDevelopment)
             {
-                builder.AddJsonFile($"appsettings.{CurrentEnvironment}.json", optional: true);
+                builder.AddJsonFile($"appsettings.{CurrentEnvironment}.json", optional: true, reloadOnChange: true);
+                builder.AddUserSecrets<Program>();
+            }
+
+            var configuration = builder.Build();
+
+            string keyVaultEndpoint = configuration["KeyVault:Endpoint"];
+            if (!string.IsNullOrWhiteSpace(keyVaultEndpoint))
+            {
+                builder.AddAzureKeyVault(keyVaultEndpoint);
             }
 
             return builder.AddEnvironmentVariables().Build();
