@@ -1,7 +1,10 @@
 ﻿using BusinessLogic.Module.CryptoApi.QueryProvider;
 using BusinessLogic.Module.CryptoCurrency;
+using Configuration.Models;
 using ExternalServices.Services;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using System;
 
 namespace BusinessLogic.Extensions
@@ -13,13 +16,13 @@ namespace BusinessLogic.Extensions
             serviceCollection.RegisterServicesAlways();
         }
 
-        public static void RegisterServicesWebJobs(this IServiceCollection serviceCollection)
+        public static void RegisterServicesWebJobs(this IServiceCollection serviceCollection, IConfiguration configuration)
         {
             serviceCollection.AddTransient<ICryptoApiQueryProvider, CryptoApiQueryProvider>();
             serviceCollection.AddTransient<ICryptoApiService, CryptoApiService>();
 
             serviceCollection.RegisterServicesAlways();
-            serviceCollection.RegisterExternalServices();
+            serviceCollection.RegisterExternalServices(configuration);
         }
 
         private static void RegisterServicesAlways(this IServiceCollection serviceCollection)
@@ -32,12 +35,12 @@ namespace BusinessLogic.Extensions
 
         }
 
-        public static void RegisterExternalServices(this IServiceCollection serviceCollection)
+        public static void RegisterExternalServices(this IServiceCollection serviceCollection, IConfiguration configuration)
         {
             serviceCollection.AddHttpClient<IHttpCoinlibService, HttpCoinlibService>(client =>
             {
-                //var pmdbBlueSettings = configuration.GetSection("PMDBBlue").Get<PMDBBlueSettings>();
-                client.BaseAddress = new Uri("https://coinlib.io/");
+                var baseUrl = configuration[$"{CoinlibSettings.Name}:{nameof(CoinlibSettings.BaseUrl)}"] ;
+                client.BaseAddress = new Uri(baseUrl);
             });
         }
     }

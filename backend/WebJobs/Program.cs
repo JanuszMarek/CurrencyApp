@@ -84,9 +84,10 @@ namespace WebJobs
             serviceCollection.AddDbContext<CurrencyContext>(option =>
                 option.UseSqlServer(configuration[ConfigurationStrings.ConnectionString])
             );
-            serviceCollection.RegisterServicesWebJobs();
+            serviceCollection.RegisterServicesWebJobs(configuration);
 
-            serviceCollection.Configure<CoinlibSettings>(options => configuration.GetSection("Coinlib").Bind(options));
+            serviceCollection.Configure<CoinlibSettings>(options => 
+                configuration.GetSection(CoinlibSettings.Name).Bind(options));
         }
     }
 }
