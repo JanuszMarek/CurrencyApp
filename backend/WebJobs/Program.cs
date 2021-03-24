@@ -1,9 +1,4 @@
-﻿using BusinessLogic;
-using BusinessLogic.Extensions;
-using Configuration.Models;
-using Entity.Constants;
-using Entity.Context;
-using Microsoft.EntityFrameworkCore;
+﻿using Configuration.Extensions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -11,6 +6,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using WebJobs.Extensions;
 
 namespace WebJobs
 {
@@ -63,31 +59,23 @@ namespace WebJobs
             }
 
             builder.ConfigureWebJobs(webJobConfiguration =>
-                    {
-                        webJobConfiguration
-                            .AddAzureStorageCoreServices()
-                            .AddTimers();
-                    })
+                {
+                    webJobConfiguration
+                        .AddAzureStorageCoreServices()
+                        .AddTimers();
+                })
                 .ConfigureLogging((context, b) =>
                 {
                     b.AddConsole();
                 })
-                .ConfigureServices(serviceCollection => ConfigureService(serviceCollection))
+                .ConfigureServices(serviceCollection => 
+                {
+                    serviceCollection.RegisterServices(configuration);
+                    serviceCollection.RegisterAutoMapper();
+                })
                 .UseConsoleLifetime();
 
             return builder.Build();
-        }
-
-        private static void ConfigureService(IServiceCollection serviceCollection)
-        {
-            serviceCollection.AddTransient<WebJobTimer>();
-            serviceCollection.AddDbContext<CurrencyContext>(option =>
-                option.UseSqlServer(configuration[ConfigurationStrings.ConnectionString])
-            );
-            serviceCollection.RegisterServicesWebJobs(configuration);
-
-            serviceCollection.Configure<CoinlibSettings>(options => 
-                configuration.GetSection(CoinlibSettings.Name).Bind(options));
         }
     }
 }

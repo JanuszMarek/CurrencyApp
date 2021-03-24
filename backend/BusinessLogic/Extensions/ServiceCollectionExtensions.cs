@@ -24,12 +24,7 @@ namespace BusinessLogic.Extensions
 
         private static void RegisterServicesAlways(this IServiceCollection serviceCollection)
         {
-            serviceCollection.RegisterAutoMapper();
-        }
-
-        private static void RegisterAutoMapper(this IServiceCollection serviceCollection)
-        {
-
+           
         }
 
         public static void RegisterExternalServices(this IServiceCollection serviceCollection, IConfiguration configuration)
