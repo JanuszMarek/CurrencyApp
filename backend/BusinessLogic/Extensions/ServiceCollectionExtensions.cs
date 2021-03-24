@@ -1,4 +1,6 @@
 ﻿using BusinessLogic.Module.CryptoApiModule;
+using BusinessLogic.Module.CurrencyPriceModule;
+using BusinessLogic.Module.CurrencyPriceModule.QueryProvider;
 using Configuration.Models;
 using ExternalServices.Services;
 using Microsoft.Extensions.Configuration;
@@ -17,6 +19,9 @@ namespace BusinessLogic.Extensions
         public static void RegisterServicesWebJobs(this IServiceCollection serviceCollection, IConfiguration configuration)
         {
             serviceCollection.AddTransient<ICryptoApiService, CryptoApiService>();
+            serviceCollection.AddTransient<ICurrencyPriceService, CurrencyPriceService>();
+            serviceCollection.AddTransient<ICurrencyPriceQueryProvider, CurrencyPriceQueryProvider>();
+
 
             serviceCollection.RegisterServicesAlways();
             serviceCollection.RegisterExternalServices(configuration);
