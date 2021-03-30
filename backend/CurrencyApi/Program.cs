@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using System.IO;
+using System.Net;
 
 namespace CurrencyApi
 {
@@ -17,7 +18,12 @@ namespace CurrencyApi
                 {
                     webBuilder
                         .UseContentRoot(Directory.GetCurrentDirectory())
-                        .UseStartup<Startup>();
+                        .UseKestrel(Option =>
+                        {
+                            Option.AddServerHeader = false;
+                            Option.Listen(IPAddress.Any, 5001);  // listen without a cert
+                        })
+						.UseStartup<Startup>();
                 });
     }
 }
