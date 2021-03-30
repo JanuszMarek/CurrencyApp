@@ -1,5 +1,6 @@
 ﻿using BusinessLogic.CommonModels;
 using BusinessLogic.Module.SymbolModule.QueryProvider;
+using Entity.Entities;
 using Entity.Enums;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -8,7 +9,7 @@ namespace BusinessLogic.Module.SymbolModule
 {
     public interface ISymbolService
     {
-        Task<IEnumerable<LookupModel>> GetCryptoSymbolsAsync();
+        Task<IEnumerable<Symbol>> GetCryptoSymbolsAsync();
     }
 
     public class SymbolService : ISymbolService
@@ -21,9 +22,9 @@ namespace BusinessLogic.Module.SymbolModule
         }
 
 
-        public async Task<IEnumerable<LookupModel>> GetCryptoSymbolsAsync()
+        public async Task<IEnumerable<Symbol>> GetCryptoSymbolsAsync()
         {
-            return await queryProvider.GetSymbolsLookupAsync(SymbolTypesEnum.Cryptocurrency);
+            return await queryProvider.GetSymbolsAsync(SymbolTypesEnum.Cryptocurrency);
         }
     }
 }

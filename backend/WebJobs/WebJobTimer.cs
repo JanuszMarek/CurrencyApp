@@ -1,6 +1,5 @@
 ﻿using BusinessLogic.Module.CryptoApiModule;
 using BusinessLogic.Module.CurrencyPriceModule;
-using Entity.Entities;
 using Microsoft.Azure.WebJobs;
 using System.Threading.Tasks;
 

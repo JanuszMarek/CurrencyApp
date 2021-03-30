@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using BusinessLogic.CommonModels;
 using BusinessLogic.Module._Common.QueryProvider;
 using Entity.Context;
 using Entity.Entities;
@@ -12,7 +11,7 @@ namespace BusinessLogic.Module.SymbolModule.QueryProvider
 {
     public interface ISymbolQueryProvider: IBaseMapperQueryProvider<Symbol>
     {
-        Task<IEnumerable<LookupModel>> GetSymbolsLookupAsync(SymbolTypesEnum symbolType);
+        Task<IEnumerable<Symbol>> GetSymbolsAsync(SymbolTypesEnum symbolType);
     }
 
     public class SymbolQueryProvider: BaseMapperQueryProvider<Symbol>, ISymbolQueryProvider
@@ -21,9 +20,9 @@ namespace BusinessLogic.Module.SymbolModule.QueryProvider
         {
         }
 
-        public async Task<IEnumerable<LookupModel>> GetSymbolsLookupAsync(SymbolTypesEnum symbolType)
+        public async Task<IEnumerable<Symbol>> GetSymbolsAsync(SymbolTypesEnum symbolType)
         {
-            return await GetQuery<LookupModel>(x => x.SymbolTypeId == (int)symbolType).ToListAsync();
+            return await GetQuery(x => x.SymbolTypeId == (int)symbolType).ToListAsync();
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Configuration.Models;
+﻿using Configuration.Models;
 using ExternalServices.Models.CoinLib;
 using ExternalServices.Services;
 using Microsoft.Extensions.Options;
