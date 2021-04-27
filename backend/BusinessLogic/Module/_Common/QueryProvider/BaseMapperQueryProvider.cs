@@ -11,7 +11,7 @@ namespace BusinessLogic.Module._Common.QueryProvider
     {
     }
 
-    public class BaseMapperQueryProvider<T> : BaseQueryProvider<T> where T : class
+    public abstract class BaseMapperQueryProvider<T> : BaseQueryProvider<T> where T : class
     {
         protected readonly IMapper mapper;
 
