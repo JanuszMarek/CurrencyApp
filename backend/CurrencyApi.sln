@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLogic", "BusinessLo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entity", "Entity\Entity.csproj", "{3A17ACD8-35C6-45D1-96AC-FF7BC1C3DA07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Configuration", "Configuration\Configuration.csproj", "{567943E1-479F-429F-A6C4-15EFBF47E47F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Configuration", "Configuration\Configuration.csproj", "{567943E1-479F-429F-A6C4-15EFBF47E47F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{FD750559-FB08-468C-922A-A67BC19480F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,6 +50,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9E2B623D-4871-4C96-BD29-A7D744059730} = {FD750559-FB08-468C-922A-A67BC19480F0}
+		{CF8B9F7A-4C78-4A92-A622-9F322DD9E1B1} = {FD750559-FB08-468C-922A-A67BC19480F0}
+		{3A17ACD8-35C6-45D1-96AC-FF7BC1C3DA07} = {FD750559-FB08-468C-922A-A67BC19480F0}
+		{567943E1-479F-429F-A6C4-15EFBF47E47F} = {FD750559-FB08-468C-922A-A67BC19480F0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {85334FBD-8A94-447B-A375-0883CC196AC1}
